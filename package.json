@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"grunt-contrib-less",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "grunt-contrib-less",
+    "description": "api documentation for [grunt-contrib-less (v1.4.1)](https://github.com/gruntjs/grunt-contrib-less#readme) [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-less.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-less) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less)",
     "devDependencies": {
-        "grunt-contrib-less": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "grunt-contrib-less": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-grunt-contrib-less",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-grunt-contrib-less",
+    "keywords": [
+        "documentation",
+        "grunt-contrib-less"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_grunt_contrib_less.js",
+    "name": "npmdoc-grunt-contrib-less",
+    "nameAlias": "npmdoc_grunt_contrib_less",
+    "nameOriginal": "npmdoc-grunt-contrib-less",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-grunt-contrib-less.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
