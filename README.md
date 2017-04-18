@@ -1,9 +1,14 @@
-# api documentation for  [grunt-contrib-less (v1.4.1)](https://github.com/gruntjs/grunt-contrib-less#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-less.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-less) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less)
+# npmdoc-grunt-contrib-less
+
+#### api documentation for  [grunt-contrib-less (v1.4.1)](https://github.com/gruntjs/grunt-contrib-less#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-less.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-less) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less)
+
 #### Compile LESS files to CSS
 
-[![NPM](https://nodei.co/npm/grunt-contrib-less.png?downloads=true)](https://www.npmjs.com/package/grunt-contrib-less)
+[![NPM](https://nodei.co/npm/grunt-contrib-less.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/grunt-contrib-less)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-less/build/screenCapture.buildNpmdoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-grunt-contrib-less%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-less/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-grunt-contrib-less/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-grunt-contrib-less/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-grunt-contrib-less/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-grunt-contrib-less/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-grunt-contrib-less/build/screenCapture.npmPackageListing.svg)
 
@@ -97,37 +102,29 @@
     "main": "tasks/less.js",
     "maintainers": [
         {
-            "name": "cowboy",
-            "email": "cowboy@rj3.net"
+            "name": "cowboy"
         },
         {
-            "name": "jmeas",
-            "email": "jellyes2@gmail.com"
+            "name": "jmeas"
         },
         {
-            "name": "shama",
-            "email": "kyle@dontkry.com"
+            "name": "shama"
         },
         {
-            "name": "sindresorhus",
-            "email": "sindresorhus@gmail.com"
+            "name": "sindresorhus"
         },
         {
-            "name": "tkellen",
-            "email": "tyler@sleekcode.net"
+            "name": "tkellen"
         },
         {
-            "name": "vladikoff",
-            "email": "vlad@vladikoff.com"
+            "name": "vladikoff"
         },
         {
-            "name": "xhmikosr",
-            "email": "xhmikosr@gmail.com"
+            "name": "xhmikosr"
         }
     ],
     "name": "grunt-contrib-less",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/gruntjs/grunt-contrib-less.git"
@@ -138,16 +135,6 @@
     "version": "1.4.1"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module grunt-contrib-less](#apidoc.module.grunt-contrib-less)
-
-
-
-# <a name="apidoc.module.grunt-contrib-less"></a>[module grunt-contrib-less](#apidoc.module.grunt-contrib-less)
 
 
 
