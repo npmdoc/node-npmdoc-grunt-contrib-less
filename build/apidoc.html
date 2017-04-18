@@ -61,12 +61,153 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.grunt-contrib-less">module grunt-contrib-less</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.grunt-contrib-less.grunt-contrib-less">
+            function <span class="apidocSignatureSpan"></span>grunt-contrib-less
+            <span class="apidocSignatureSpan">(grunt)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.grunt-contrib-less" id="apidoc.module.grunt-contrib-less">module grunt-contrib-less</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.grunt-contrib-less.grunt-contrib-less" id="apidoc.element.grunt-contrib-less.grunt-contrib-less">
+        function <span class="apidocSignatureSpan"></span>grunt-contrib-less
+        <span class="apidocSignatureSpan">(grunt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">grunt-contrib-less = function (grunt) {
+  grunt.registerMultiTask(&#x27;less&#x27;, &#x27;Compile LESS files to CSS&#x27;, function() {
+    var done = this.async();
+
+    var options = this.options({
+      banner: &#x27;&#x27;
+    });
+
+    if (this.files.length &#x3c; 1) {
+      grunt.verbose.warn(&#x27;Destination not written because no source files were provided.&#x27;);
+    }
+
+    var tally = {
+      sheets: 0,
+      maps: 0
+    };
+
+    async.eachSeries(this.files, function(f, nextFileObj) {
+      var destFile = f.dest;
+
+      var files = f.src.filter(function(filepath) {
+        // Warn on and remove invalid source files (if nonull was set).
+        if (!grunt.file.exists(filepath)) {
+          grunt.log.warn(&#x27;Source file &#x22;&#x27; + filepath + &#x27;&#x22; not found.&#x27;);
+          return false;
+        }
+        return true;
+      });
+
+      if (files.length === 0) {
+        if (f.src.length &#x3c; 1) {
+          grunt.log.warn(&#x27;Destination &#x27; + chalk.cyan(destFile) + &#x27; not written because no source files were found.&#x27;);
+        }
+
+        // No src files, goto next target. Warn would have been issued above.
+        return nextFileObj();
+      }
+
+      var compiled = [];
+      var i = 0;
+
+      async.concatSeries(files, function(file, next) {
+        if (i++ &#x3e; 0) {
+          options.banner = &#x27;&#x27;;
+        }
+
+        compileLess(file, destFile, options)
+          .then(function(output) {
+            compiled.push(output.css);
+            if (options.sourceMap &#x26;&#x26; !options.sourceMapFileInline) {
+              var sourceMapFilename = options.sourceMapFilename;
+              if (!sourceMapFilename) {
+                sourceMapFilename = destFile + &#x27;.map&#x27;;
+              }
+              grunt.file.write(sourceMapFilename, output.map);
+              grunt.verbose.writeln(&#x27;File &#x27; + chalk.cyan(sourceMapFilename) + &#x27; created.&#x27;);
+              tally.maps++;
+            }
+            process.nextTick(next);
+          },
+          function(err) {
+            nextFileObj(err);
+          });
+      }, function() {
+        if (compiled.length &#x3c; 1) {
+          grunt.log.warn(&#x27;Destination &#x27; + chalk.cyan(destFile) + &#x27; not written because compiled files were empty.&#x27;);
+        } else {
+          var allCss = compiled.join(options.compress ? &#x27;&#x27; : grunt.util.normalizelf(grunt.util.linefeed));
+          grunt.file.write(destFile, allCss);
+          grunt.verbose.writeln(&#x27;File &#x27; + chalk.cyan(destFile) + &#x27; created&#x27;);
+          tally.sheets++;
+        }
+        nextFileObj();
+      });
+
+    }, function () {
+      if (tally.sheets) {
+        grunt.log.ok(tally.sheets + &#x27; &#x27; + grunt.util.pluralize(tally.sheets, &#x27;stylesheet/stylesheets&#x27;) + &#x27; created.&#x27;);
+      }
+
+      if (tally.maps) {
+        grunt.log.ok(tally.maps + &#x27; &#x27; + grunt.util.pluralize(tally.maps, &#x27;sourcemap/sourcemaps&#x27;) + &#x27; created.&#x27;);
+      }
+
+      done();
+    });
+  });
+
+  var compileLess = function(srcFile, destFile, options) {
+    options = _.assign({filename: srcFile}, options);
+    options.paths = options.paths || [path.dirname(srcFile)];
+
+    if (typeof options.paths === &#x27;function&#x27;) {
+      try {
+        options.paths = options.paths(srcFile);
+      } catch (e) {
+        grunt.fail.warn(wrapError(e, &#x27;Generating @import paths failed.&#x27;));
+      }
+    }
+
+    if (options.sourceMap &#x26;&#x26; !options.sourceMapFileInline &#x26;&#x26; !options.sourceMapFilename) {
+      options.sourceMapFilename = path.basename(destFile) + &#x27;.map&#x27;;
+    }
+
+    if (typeof options.sourceMapBasepath === &#x27;function&#x27;) {
+      try {
+        options.sourceMapBasepath = options.sourceMapBasepath(srcFile);
+      } catch (e) {
+        grunt.fail.warn(wrapError(e, &#x27;Generating sourceMapBasepath failed.&#x27;));
+      }
+    }
+
+    if (typeof options.sourceMap === &#x27;boolean&#x27; &#x26;&#x26; options.sourceMap) {
+      options.sourceMap = {
+        sourceMapBasepath: options.sourceMapBasepath,
+        sourceMapFilename: options.sourceMapFilename,
+        sourceMapInputFilename: options.sourceMapInputFilename,
+        sourceMapFullFilename: options.sourceMapFullFilename,
+        sourceMapURL: options.sourceMapURL,
+        sourceMapRoot ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
