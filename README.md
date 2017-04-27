@@ -1,6 +1,6 @@
 # npmdoc-grunt-contrib-less
 
-#### api documentation for  [grunt-contrib-less (v1.4.1)](https://github.com/gruntjs/grunt-contrib-less#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-less.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-less) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less)
+#### basic api documentation for  [grunt-contrib-less (v1.4.1)](https://github.com/gruntjs/grunt-contrib-less#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-grunt-contrib-less.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-grunt-contrib-less) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less.svg)](https://travis-ci.org/npmdoc/node-npmdoc-grunt-contrib-less)
 
 #### Compile LESS files to CSS
 
@@ -132,7 +132,8 @@
     "scripts": {
         "test": "grunt test"
     },
-    "version": "1.4.1"
+    "version": "1.4.1",
+    "bin": {}
 }
 ```
 
